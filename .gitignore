@@ -4,3 +4,4 @@
 .DS_Stor
 .vscode/
 node_modules/
+secret.js

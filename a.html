@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+</head>
+<body>
+    <label for="locationChoice">Do you want to share your location?</label>
+    <select id="locationChoice">
+        <option value="">-- Select an option --</option>
+        <option value="yes">Yes</option>
+        <option value="manual">Type your location</option>
+    </select>
+
+    <form id="manualLocationForm" style="display: none;">
+        <label for="manualLocation">Enter your location:</label>
+        <input type="text" id="manualLocation" placeholder="Enter your location">
+        <button type="button" onclick="submitLocation()">Submit</button>
+    </form>
+
+    <button onclick="submitLocation()">Submit</button>
+
+    <p id="location"></p>
+ 
+    <script src="./secret.js"></script>
+    <script src="./geolocation.js"></script>
+</body>
+</html>

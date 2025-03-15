@@ -5,35 +5,89 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script src="./secret.js" defer></script>
+    <script src="./geolocation.js" defer></script>
     <style>
-        
+    
     </style>
 </head>
+
 <body>
-    <div class="flex-container">  
+    <div class="flex-container">
         <div class="main-container">   
-            <h1 id="main">Study Haven</h1>
-            <h2>Enter a Location (Default is SRYC building)</h2>
-            <input type="text" id="latitude" placeholder="Latitude">
-            <input type="text" id="longitude" placeholder="Longitude">
-            <!---<input type="search" placeholder="Enter your location..." id="search-box"> --->
-            <!---<button type="submit">Search</button> --->
-             <!---<button type="submit">Location</button> -->
-             <button onclick="redirectToResults()">Find Study Spots</button>
-            <script>
-                function redirectToResults() {
-                    let lat = document.getElementById("latitude").value;
-                    let lng = document.getElementById("longitude").value;
-                    
-                    if (!lat) lat = 49.188050;
-                    if (!lng) lng = -122.849935;
-                    
-                    // Redirect to the results page with coordinates in the URL
-                    window.location.href = `search-results.html?latitude=${lat}&longitude=${lng}`;
-                }
-            </script>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia rerum pariatur laborum adipisci vitae tempore aut, sint sit non atque ducimus saepe commodi sunt illo voluptates ad? Magni, tempore nisi?</p>
+            <h1 id="main" class="header">Study Spots</h1>
+            <h2 id="prompt">Enter a Location (Default is SRYC building)</h2>
+            
+            <!-- Current Location Dropdown -->
+            <div class="current-location">
+                <button onclick="toggleMenu()" class="current-location-btn" aria-label="Location menu"></button>
+                <div id="myMenu" class="current-location-content">
+                  <a href="#use-current-location_placeholder">Use Current Location</a>
+                  <!-- Properly wrap list items in <ul> -->
+                  <ul>
+                    <li><input type="checkbox" /> Free Wi-FI</li>
+                    <li><input type="checkbox" /> Bathroom</li>
+                    <li><input type="checkbox" />Power Outlets </li>
+                    <li><input type="checkbox" /> 24/7</li>
+                  </ul>
+                </div>
+            </div>
+
+            <!-- Text field for address input -->
+            <input type="text" id="addressInput" placeholder="Enter your address...">
+
+            <!-- Button to find study spots -->
+            <button onclick="redirectToResults()">Find Study Spots</button>
+
+            <!-- Map container -->
+            <div id="map-container">
+                <iframe id="mapFrame"
+                    src="https://www.google.com/maps/embed/v1/place?key=YOUR_GOOGLE_MAPS_API_KEY&q=Vancouver,BC"
+                    allowfullscreen>
+                </iframe>
+            </div>
         </div>
-    </div> 
+    </div>
+
+    <script>
+      // Toggle the dropdown menu & rotate button icon
+      function toggleMenu() {
+        const menu = document.getElementById("myMenu");
+        const button = document.querySelector('.current-location-btn');
+        menu.classList.toggle("show");
+        button.classList.toggle("active");
+      }
+
+      // Redirect or update map based on user input
+      function redirectToResults() {
+        // If #latitude/#longitude inputs exist in your real code, use them
+        let lat = document.getElementById("latitude") ? document.getElementById("latitude").value : '';
+        let lng = document.getElementById("longitude") ? document.getElementById("longitude").value : '';
+
+        if (!lat) lat = 49.188050;
+        if (!lng) lng = -122.849935;
+
+        // Example redirect
+        window.location.href = `search-results.html?latitude=${lat}&longitude=${lng}`;
+
+        // Update map on Enter key press
+        document.getElementById("addressInput").addEventListener("keypress", function(event) {
+          if (event.key === "Enter") {
+            event.preventDefault(); // Prevent page reload
+            let address = document.getElementById("addressInput").value;
+            updateMap(address);
+          }
+        });
+      }
+
+      // Updates the iframe src to show the typed address
+      function updateMap(address) {
+        let mapFrame = document.getElementById("mapFrame");
+        let encodedAddress = encodeURIComponent(address);
+        // let apiKey = "AIzaSyDh6tJIy8JleYWD59RKJgLcli2Hazn2rA8"; // Replace with your actual API key
+        mapFrame.src = `https://www.google.com/maps/embed/v1/place?key=AIzaSyDh6tJIy8JleYWD59RKJgLcli2Hazn2rA8&q=${encodedAddress}`;
+      }
+    </script>
 </body>
 </html>
+
