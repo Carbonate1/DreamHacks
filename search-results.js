@@ -14,7 +14,6 @@ async function fetchStudyLocations() {
     // IMPORTANT: Max radius is 50km. Try to stay under 10km
     const keyword = "study";
     const apiUrl = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${lat},${lng}&radius=${radius}&keyword=${keyword}&key=${apiKey}`;
-
     try {
         const response = await fetch(apiUrl);
         const data = await response.json();
