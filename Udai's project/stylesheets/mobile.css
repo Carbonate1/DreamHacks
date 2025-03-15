@@ -1,0 +1,82 @@
+
+#nav-title{
+    margin-left: auto;
+  
+}
+header{
+    flex-direction: column;
+    padding-left: 0;
+    padding-right: 0;
+    
+    
+}
+header ul{
+    display: flex;
+    flex-direction: column;
+    
+    
+}
+nav{
+    margin: 0;
+}
+header li{
+   padding-bottom: 10px;
+   padding-top: 10px;
+   font-size: large;
+}
+header li a{
+    display: flex;
+    justify-content: space-around;
+}
+footer {
+    position: relative;
+    margin-top: 100px;
+    
+    
+}
+
+#aboutmefooter{
+    position: relative;
+    margin-top: 0px;
+}
+
+.imgflex{
+    display: none;
+}
+.textflex{
+    height: 500px;
+}
+.work1{
+   border-left: none;  
+    
+}
+.work2{
+    border-left: none;
+}
+
+
+
+
+
+.aboutmetext p{
+    text-align: left;
+    
+}
+form{
+    min-width:fit-content;
+    
+}
+label{
+    text-align: left;
+    padding-right: 0px;
+    padding-left: 15px;
+}
+input,textarea{
+    margin-left: 15px;
+  }
+  #mySubmit{
+    margin-left: auto;
+  }
+  fieldset{
+    padding-left: 0;
+  }
