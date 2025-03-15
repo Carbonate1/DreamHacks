@@ -3,3 +3,4 @@
 .env.test
 .DS_Stor
 .vscode/
+node_modules/
