@@ -25,10 +25,8 @@
                     let lat = document.getElementById("latitude").value;
                     let lng = document.getElementById("longitude").value;
                     
-                    if (!lat)
-                    lat = 49.188050;
-                    if (!lng)
-                    lng = -122.849935;
+                    if (!lat) lat = 49.188050;
+                    if (!lng) lng = -122.849935;
                     
                     // Redirect to the results page with coordinates in the URL
                     window.location.href = `search-results.html?latitude=${lat}&longitude=${lng}`;
