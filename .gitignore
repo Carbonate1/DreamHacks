@@ -1,5 +1,6 @@
 *.log
 .env
 .env.test
+node_modules/
 .DS_Stor
-.vscode/
+vscode/
