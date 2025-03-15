@@ -1,4 +1,5 @@
 *.log
 .env
 .env.test
-.DS_Store
+.DS_Stor
+.vscode/
