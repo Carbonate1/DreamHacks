@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <script src="./secret.js" defer></script>
+    <script src="index.js"></script>
     <script src="./geolocation.js" defer></script>
     <style>
     
@@ -15,7 +16,7 @@
 <body>
     <div class="flex-container">
         <div class="main-container">   
-            <h1 id="main" class="header">Study Spots</h1>
+            <h1 id="main" class="header"><a href="index.html">Study Spots</a></h1>
             <h2 id="prompt">Enter a Location (Default is SRYC building)</h2>
             
             <!-- Current Location Dropdown -->
@@ -25,10 +26,12 @@
                   <a href="#use-current-location_placeholder">Use Current Location</a>
                   <!-- Properly wrap list items in <ul> -->
                   <ul>
-                    <li><input type="checkbox" /> Free Wi-FI</li>
-                    <li><input type="checkbox" /> Bathroom</li>
                     <li><input type="checkbox" />Power Outlets </li>
+                    <li><input type="checkbox" /> Free entry</li>
+                    <li><input type="checkbox" /> Bathroom</li>
+                    <li><input type="checkbox" /> Free Wi-FI</li>
                     <li><input type="checkbox" /> 24/7</li>
+
                   </ul>
                 </div>
             </div>

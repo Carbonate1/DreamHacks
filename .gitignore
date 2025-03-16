@@ -1,7 +1,13 @@
 *.log
 .env
 .env.test
+<<<<<<< HEAD
 .DS_Stor
 .vscode/
 node_modules/
 secret.js
+=======
+node_moduels/
+vscode/
+.DS_Store
+>>>>>>> 8527c0f67c98c7ef31934a887b2d06a25a1165cc

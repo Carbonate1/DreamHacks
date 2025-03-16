@@ -4,17 +4,16 @@ async function fetchStudyLocations() {
     let lat = urlParams.get('latitude');
     let lng = urlParams.get('longitude');
 
-    if (!lat)
-        lat = 49.188053;
-    if (!lng)
-        lng = -122.849909;
+    if (!lat) lat = 49.188053;
+    if (!lng) lng = -122.849909;
 
-    const apiKey = "YOUR_API_KEY_HERE";
+    require('dotenv').config();
+
+    const apiKey = process.env.API_KEY;
     const radius = 3000;  // Adjust as needed (in meters)
     // IMPORTANT: Max radius is 50km. Try to stay under 10km
     const keyword = "study";
     const apiUrl = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${lat},${lng}&radius=${radius}&keyword=${keyword}&key=${apiKey}`;
-
     try {
         const response = await fetch(apiUrl);
         const data = await response.json();
